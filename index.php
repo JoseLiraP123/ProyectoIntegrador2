@@ -43,7 +43,7 @@
                             <a href="reset-password.html">Recuperar contraseña</a>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-rounded">Sign in</button>
+                    <button type="submit" class="btn btn-rounded">Logear</button>
                     <p class="sign-note">¿Eres nuevo? <a href="sign-up.html">Registrate</a></p>
                     <!--<button type="button" class="close">
                         <span aria-hidden="true">&times;</span>
