@@ -1,7 +1,6 @@
 <?php
-
-
-
+    require_once '../../config/conexion.php';
+    if(isset($_SESSION["usu_id"])){ 
 ?>
 
 <!DOCTYPE html>
@@ -25,5 +24,14 @@
 	</div><!--.page-content-->
 
 	<?php require_once("../MainJS/js.php"); ?>
+        <script src="home.js" type="text/javascript"></script>
+        
 </body>
 </html>
+<?php  
+    } else {
+        $conexion = new Conectar();
+        $ruta = $conexion->ruta();        
+        header("Location: ".$ruta."index.php");
+    }
+?>
