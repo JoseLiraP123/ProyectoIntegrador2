@@ -39,6 +39,7 @@
 	                <div class="mobile-menu-right-overlay"></div>
                         
                         <input type="hidden" id="user_idx" value="<?php echo $_SESSION['usu_id']; ?>"> <!--variable de usuario global-->
+                        <input type="hidden" id="rol_idx" value="<?php echo $_SESSION['rol_id']; ?>"> <!--variable de rol del usuario-->
                         
                         <div class="dropdown dropdown-typical">
                             <a href="#" class="dropdown-toggle no-arr">

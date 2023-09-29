@@ -35,11 +35,15 @@
     <div class="page-center">
         <div class="page-center-in">
             <div class="container-fluid">
+                
                 <form class="sign-box" method="post" id="login_form">
+                    
+                    <input type="hidden" id="rol_id" name="rol_id" value="1">
+                    
                     <div class="sign-avatar">
                         <img src="public/img/avatar-sign.png" alt="">
                     </div>
-                    <header class="sign-title">Acceso</header>
+                    <header class="sign-title" id="lbltitulo">Acceso para Usuarios</header>
                     <?php
                         
                         if(isset($_GET["m"])){
@@ -90,6 +94,9 @@
                         <div class="float-right reset">
                             <a href="reset-password.html">Recuperar contraseña</a>
                         </div>
+                        <div class="float-left reset">
+                            <a href="#" id="btnsoporte">Acceso Soporte</a>
+                        </div>
                     </div>
                     <input type="hidden" name="enviar" class="form-control" value="si">
                     <button type="submit" class="btn btn-rounded">Iniciar Sesión</button>
@@ -124,6 +131,12 @@
             });
         });
     </script>
-<script src="js/app.js"></script>
+
+    <script src="index.js"></script>
+    
+    <script src="js/app.js"></script>
+
+
+
 </body>
 </html>
