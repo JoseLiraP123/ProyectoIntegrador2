@@ -19,12 +19,37 @@
 
 	<div class="page-content">
 		<div class="container-fluid">
-			Blank page.
+                    <header class="section-header">
+                        <div class="tbl">
+                            <div class="tbl-row">
+                                <div class="tbl-cell">
+                                    <h3>Consultar Ticket</h3>
+                                    <ol class="breadcrumb breadcrumb-simple">
+                                            <li><a href="#">Home</a></li>
+                                            <li class="active">Consultar Ticket</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    
+                    <div class="box-typical box-typical-padding">
+                        <table id="ticket_data" class="table table-bordered table-stripped table-vcenter js-dataTable-full">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10%;">Nro. Ticket</th>
+                                    <th style="width: 15%;">Categoría</th>
+                                    <th class="d-none d-sm-table-cell" style="width: 25%">Título</th>
+                                    <th class="text-center" style="width: 15%;"></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
 		</div><!--.container-fluid-->
 	</div><!--.page-content-->
 
 	<?php require_once("../MainJS/js.php"); ?>
-        <script src="consultarticket.js" type="text/javascript"></script>
+        <script src="consultarticket.js"></script>
         
 </body>
 </html>

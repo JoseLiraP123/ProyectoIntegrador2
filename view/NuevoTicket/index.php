@@ -39,35 +39,36 @@
                                 <h5 class="m-t-lg with-border">Ingresar Información</h5>
 
 				<div class="row">
+                                    <form method="post" id="ticket_form">
+                                        
+                                        <input type="hidden" id="usu_id" name="usu_id" value="<?php echo $_SESSION['usu_id']; ?>">
+                                        
                                         <div class="col-lg-8">
 						<fieldset class="form-group">
-							<label class="form-label semibold" for="exampleInputEmail1">Título</label>
-							<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Ingrese Título">
+							<label class="form-label semibold" for="tick_titulo">Título</label>
+                                                        <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" placeholder="Ingrese Título">
 						</fieldset>
 					</div>
 					<div class="col-lg-4">
 						<fieldset class="form-group">
 							<label class="form-label semibold" for="exampleInput">Categoría</label>
-							<select class="form-control"   id="exampleSelect2">
-								<option>Hardware</option>
-								<option>Software</option>
-								<option>Otros</option>
+                                                        <select class="form-control" id="cat_id" name="cat_id">
 							</select>
 						</fieldset>
 					</div>
 					
 					<div class="col-lg-12">
 						<fieldset class="form-group">
-							<label class="form-label semibold" for="exampleInputPassword1">Descrición</label>
+							<label class="form-label semibold" for="tick_descrip">Descrición</label>
 							<div class="summernote-theme-1">
-                                                                <textarea class="summernote" name="name" id="tick_descrip">Hello Summernote</textarea>
+                                                                <textarea class="summernote" name="tick_descrip" id="tick_descrip"></textarea>
                                                         </div>
 						</fieldset>
 					</div>
 					<div class="col-lg-12">
-						<button type="button" class="btn btn-rounded btn-inline btn-primary">Enviar Ticket</button>
+                                            <button type="submit" name="action" value="add" class="btn btn-rounded btn-inline btn-primary">Enviar Ticket</button>
 					</div>
-                                        
+                                    </form>
 				</div><!--.row-->
                         </div>
                     
@@ -75,17 +76,8 @@
 	</div><!--.page-content-->
         
 	<?php require_once("../MainJS/js.php"); ?>
-        <script src="nuevoticket.js" type="text/javascript"></script>
-        
-        <script>
-            $(document).ready(function() {
-                    $('#tick_descrip').summernote({
-                        height: 200
-                    });
-            });
-        </script>
-        
-        
+        <script src="nuevoticket.js"></script>
+           
         
 </body>
 </html>
