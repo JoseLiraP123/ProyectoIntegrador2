@@ -7,7 +7,6 @@ function init(){
 }
 
 $(document).ready(function(){
-    console.log(usu_id);
     if(rol_id==1){
             tabla=$('#ticket_data').dataTable({
                 "aProcessing": true,
@@ -120,7 +119,7 @@ $(document).ready(function(){
 });
 
 function ver(tick_id){
-    ///falta hacer desde aqui la muestra de los detalles de los tickets
+   window.open('http://localhost/ProyectoIntegrador2/view/DetalleTicket/?ID='+tick_id+'');
 }
 
 init();
