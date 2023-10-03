@@ -69,7 +69,35 @@ $(document).on("click","#btnenviar", function(){
 });
 
 $(document).on("click","#btncerrarticket", function(){
-    
+    swal({
+        title: "HelpDesk?",
+        text: "Esta seguro de cerrar el ticket?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonClass: "btn-warning",
+        confirmButtonText: "Si",
+        cancelButtonText: "No",
+        closeOnConfirm: false,
+      
+    },
+    function(isConfirm) {
+        if (isConfirm) {
+
+            var tick_id = getUrlparameter('ID');
+            $.post("../../controller/ticket.php?op=update", {tick_id : tick_id}, function(data){
+               
+            });
+
+
+
+            swal({
+                title: "HelpDesk",
+                text: "Ticket cerrado correctamente.",
+                type: "success",
+                confirmButtonClass: "btn-success"
+            });
+        }
+    });
 });
 
 function listardetalle(tick_id){

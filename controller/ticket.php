@@ -40,6 +40,10 @@
            echo json_encode($results);
             
         break;
+
+         case "update":
+            $ticket->update_ticket($_POST["tick_id"]);       
+         break;   
         
         case "listar":
             
