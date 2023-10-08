@@ -42,7 +42,8 @@
         break;
 
          case "update":
-            $ticket->update_ticket($_POST["tick_id"]);       
+            $ticket->update_ticket($_POST["tick_id"]); 
+            $ticket->insert_ticketdetalle_cerrar($_POST["tick_id"],$_POST["usu_id"]);    
          break;   
         
         case "listar":
@@ -90,7 +91,7 @@
                                 <div class="activity-line-item-user">
                                         <div class="activity-line-item-user-photo">
                                                 <a href="#">
-                                                        <img src="../../public/img/photo-64-2.jpg" alt="">
+                                                        <img src="../../public/<?php echo $row['rol_id']; ?>.jpg" alt="">
                                                 </a>
                                         </div>
                                         <div class="activity-line-item-user-name"><?php echo $row["usu_nom"]." ".$row["usu_ape"]; ?></div>

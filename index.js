@@ -12,12 +12,12 @@ $(document).on("click", "#btnsoporte", function(){
         $('#lbltitulo').html("Acceso para Soporte");
         $('#btnsoporte').html("Acceso Usuarios");
         $('#rol_id').val(2);
-        console.log($('#rol_id').val());
+        $("#imgtipo").attr("src","public/2.jpg");
     }else{
         $('#lbltitulo').html("Acceso para Usuarios");
         $('#btnsoporte').html("Acceso Soporte");
         $('#rol_id').val(1);
-        console.log($('#rol_id').val());
+        $("#imgtipo").attr("src","public/1.jpg");
     }
     
     
