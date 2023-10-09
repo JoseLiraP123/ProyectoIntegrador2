@@ -10,7 +10,7 @@
             
             try{
                 $conectar = $this->dbh = new PDO("mysql:local=localhost;dbname=proyectoint2", "root", "");
-                //$conectar = $this->dbh = new PDO("mysql:local=localhost;dbname=proyectoint2", "sebastian", "Sebastian1");
+                //$conectar = $this->dbh = new PDO("mysql:local=localhost;dbname=proyectoint2", "sebastian", "Sebastian1"); 
                 return $conectar;
             } catch (Exception $e){
                 print "Error DB!: " . $e->getMessage()."<br/>";
