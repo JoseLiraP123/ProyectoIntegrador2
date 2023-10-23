@@ -104,6 +104,8 @@
             return $resultado = $sql->fetchAll();
         }
 
+        //EN CONSTRUCCION 
+
         public function get_usuario_total_x_id($usu_id){
             $conectar= parent::conexion();
             parent::set_names();
@@ -133,6 +135,10 @@
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }
+
+     
+
+
 
         public function get_usuario_grafico($usu_id){
             $conectar= parent::conexion();
