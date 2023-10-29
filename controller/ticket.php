@@ -28,6 +28,13 @@
                     $sub_array[] = '<span class="label label-pill label-danger">Cerrado</span>';
                 }
                 $sub_array[] = date("d/m/Y H:i:s", strtotime($row["fech_crea"]));
+
+                if($row["fech_asig"]==null){
+                    $sub_array[] = '<span class="label label-pill label-default">Sin asignar</span>';
+                } else{
+                    $sub_array[] = date("d/m/Y H:i:s", strtotime($row["fech_asig"]));
+                }
+
                 $sub_array[] = '<button type="button" onClick="ver('.$row["tick_id"].');" id="'.$row["tick_id"].'" class="btn btn-inline btn-primary btn-sm ladda-button"><div><i class="fa fa-eye"></i></div></button>';
                 $data[] = $sub_array;
             }
@@ -64,6 +71,14 @@
                 }
                                 
                 $sub_array[] = date("d/m/Y H:i:s", strtotime($row["fech_crea"]));
+
+                
+                if($row["fech_asig"]==null){
+                    $sub_array[] = '<span class="label label-pill label-default">Sin asignar</span>';
+                } else{
+                    $sub_array[] = date("d/m/Y H:i:s", strtotime($row["fech_asig"]));
+                }
+
                 $sub_array[] = '<button type="button" onClick="ver('.$row["tick_id"].');" id="'.$row["tick_id"].'" class="btn btn-inline btn-primary btn-sm ladda-button"><div><i class="fa fa-eye"></i></div></button>';
                 $data[] = $sub_array;
             }
