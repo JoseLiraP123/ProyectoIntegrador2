@@ -195,6 +195,17 @@ class Ticket extends Conectar{
         return $resultado=$sql->fetchAll();
     }
 
+    public function get_ticket_grafico(){
+        $conectar= parent::conexion();
+        parent::set_names();
+        $sql = "SELECT tm_categoria.cat_nom as nom, COUNT(*) as total FROM tm_ticket JOIN 
+                tm_categoria ON tm_ticket.cat_id = tm_categoria.cat_id WHERE tm_ticket.est=1 GROUP BY 
+                tm_categoria.cat_nom ORDER BY total DESC"; 
+        $sql=$conectar->prepare($sql);
+        $sql->execute();
+        return $resultado=$sql->fetchAll();               
+    }
+
 
     }
 ?>

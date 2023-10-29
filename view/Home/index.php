@@ -19,7 +19,7 @@
 	<!-- Contenido -->
 	<div class="page-content">
 		<div class="container-fluid">
-			<div class="row">
+			<div class="row">	
 				<div class="col-xl-12">
 					<div class="row">
 						<div class="col-sm-4">
@@ -55,7 +55,7 @@
 					Grafico Estadístico
 				</header>
 				<div class="card-block">
-					<div id="divgrafico" style="height: 250px;"></div>
+					<div id="divgrafico" style="height: 250px;"></div>	
 				</div>
 			</section>
 			
