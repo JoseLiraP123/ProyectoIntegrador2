@@ -22,10 +22,10 @@
 				<div class="tbl">
 					<div class="tbl-row">
 						<div class="tbl-cell">
-							<h3>Mantenimiento usuario</h3>
+							<h3>Mantenimiento Usuario</h3>
 							<ol class="breadcrumb breadcrumb-simple">
 								<li><a href="#">Home</a></li>
-								<li class="active">Mantenimiento usuario</li>
+								<li class="active">Mantenimiento Usuario</li>
 							</ol>
 						</div>
 					</div>
@@ -61,6 +61,8 @@
 	<?php require_once("../MainJs/js.php");?>
 	
 	<script type="text/javascript" src="mntusuario.js"></script>
+
+	<script type="text/javascript" src="../notificacion.js"></script>
 
 </body>
 </html>

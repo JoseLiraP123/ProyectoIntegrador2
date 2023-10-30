@@ -1,8 +1,8 @@
 <?php
     require_once("../../config/conexion.php");
-    $conexion = new Conectar();
-    $ruta = $conexion->ruta();
+    /* TODO: Destruir Session */
     session_destroy();
-    header("Location:".$ruta."index.php");
-    exit();    
+    /* TODO: Luego de cerrar session enviar a la pantalla de login */
+    header("Location:".Conectar::ruta()."index.php");
+    exit();
 ?>

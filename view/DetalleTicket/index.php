@@ -1,107 +1,163 @@
 <?php
-require_once '../../config/conexion.php';
+require_once("../../config/conexion.php");
 if (isset($_SESSION["usu_id"])) {
+
 ?>
+  <!DOCTYPE html>
+  
+  <html>
+  <?php require_once("../MainHead/head.php"); ?>
+  <title>Detalle Ticket</title>
+  </head>
 
-    <!DOCTYPE html>
-    <html>
-    <?php require_once("../MainHeader/head.php"); ?>
+  <body class="with-side-menu">
 
-    <title>Detalle de ticket enviado</title>
-    </head>
+    <?php require_once("../MainHeader/header.php"); ?>
 
-    <body class="with-side-menu">
+    <div class="mobile-menu-left-overlay"></div>
 
-        <?php require_once("../MainHeader/header.php"); ?>
+    <?php require_once("../MainNav/nav.php"); ?>
 
-        <div class="mobile-menu-left-overlay"></div>
+    <!-- Contenido -->
+    <div class="page-content">
+      <div class="container-fluid">
 
-        <?php require_once("../MainNav/nav.php"); ?>
+        <header class="section-header">
+          <div class="tbl">
+            <div class="tbl-row">
+              <div class="tbl-cell">
+                <h3 id="lblnomidticket">Detalle Ticket - 1</h3>
+                <div id="lblestado"></div>
+                <span class="label label-pill label-primary" id="lblnomusuario"></span>
+                <span class="label label-pill label-default" id="lblfechcrea"></span>
+                <ol class="breadcrumb breadcrumb-simple">
+                  <li><a href="#">Home</a></li>
+                  <li class="active">Detalle Ticket</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </header>
 
-        <div class="page-content">
-            <div class="container-fluid">
-                <header class="section-header">
-                    <div class="tbl">
-                        <div class="tbl-row">
-                            <div class="tbl-cell">
-                                <h3 id="lblnomidticket"></h3>
-                                <div id="lblestado"></div>
-                                <span class="label label-pill label-primary" id="lblnomusuario">Nombre del usuario</span>
-                                <span class="label label-pill label-default" id="lblfechcrea">00/00/00</span>
-                                <ol class="breadcrumb breadcrumb-simple">
-                                    <li><a href="#">Home</a></li>
-                                    <li class="active">Consultar Ticket</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </header>
+        <div class="box-typical box-typical-padding">
+          <div class="row">
 
-                <div class="box-typical box-typical-padding">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <fieldset class="form-group">
-                                <label class="form-label semibold" for="cat_nom">Categoría: </label>
-                                <input type="text" class="form-control" id="cat_nom" name="cat_nom" readonly>
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-6">
-                            <fieldset class="form-group">
-                                <label class="form-label semibold" for="tick_titulo">Título: </label>
-                                <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" readonly>
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-12">
-                            <fieldset class="form-group">
-                                <label class="form-label semibold" for="tickd_descripusu">Descripción: </label>
-                                <div class="summernote-theme-1">
-                                    <textarea class="summernote" name="tickd_descripusu" id="tickd_descripusu"></textarea>
-                                </div>
-                            </fieldset>
-                        </div>
+              <div class="col-lg-12">
+                <fieldset class="form-group">
+                  <label class="form-label semibold" for="tick_titulo">Titulo</label>
+                  <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" readonly>
+                </fieldset>
+              </div>
 
-                    </div>
+              <div class="col-lg-4">
+                <fieldset class="form-group">
+                  <label class="form-label semibold" for="cat_nom">Categoria</label>
+                  <input type="text" class="form-control" id="cat_nom" name="cat_nom" readonly>
+                </fieldset>
+              </div>
 
-                </div>
+              <div class="col-lg-4">
+                <fieldset class="form-group">
+                  <label class="form-label semibold" for="cat_nom">SubCategoria</label>
+                  <input type="text" class="form-control" id="cats_nom" name="cats_nom" readonly>
+                </fieldset>
+              </div>
 
-                <section class="activity-line" id="lbldetalle">
+              <div class="col-lg-4">
+                <fieldset class="form-group">
+                  <label class="form-label semibold" for="cat_nom">Prioridad</label>
+                  <input type="text" class="form-control" id="prio_nom" name="prio_nom" readonly>
+                </fieldset>
+              </div>
 
-                </section><!--.activity-line-->
+              <div class="col-lg-12">
+                <fieldset class="form-group">
+                  <label class="form-label semibold" for="tick_titulo">Documentos Adicionales</label>
+                  <table id="documentos_data" class="table table-bordered table-striped table-vcenter js-dataTable-full">
+                    <thead>
+                      <tr>
+                        <th style="width: 90%;">Nombre</th>
+                        <th class="text-center" style="width: 10%;"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
 
-                <div class="box-typical box-typical-padding" id="pnldetalle">
-
-                    <h5 class="m-t-lg with-border">Ingrese su duda o consulta</h5>
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <fieldset class="form-group">
-                                <label class="form-label semibold" for="tickd_descrip">Descrición</label>
-                                <div class="summernote-theme-1">
-                                    <textarea class="summernote" name="tickd_descrip" id="tickd_descrip"></textarea>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-12">
-                            <button type="button" id="btnenviar" class="btn btn-rounded btn-inline btn-primary">Enviar</button>
-                            <button type="button" id="btncerrarticket" class="btn btn-rounded btn-inline btn-warning">Cerrar Ticket</button>
-                        </div>
-                    </div><!--.row-->
-                </div>
+                    </tbody>
+                  </table>
+                </fieldset>
+              </div>
 
 
-            </div><!--.container-fluid-->
-        </div><!--.page-content-->
+              <div class="col-lg-12">
+                <fieldset class="form-group">
+                  <label class="form-label semibold" for="tickd_descripusu">Descripción</label>
+                  <div class="summernote-theme-1">
+                    <textarea id="tickd_descripusu" name="tickd_descripusu" class="summernote" name="name"></textarea>
+                  </div>
 
-        <?php require_once("../MainJS/js.php"); ?>
-        <script src="detalleticket.js"></script>
+                </fieldset>
+              </div>
 
-    </body>
+          </div>
+        </div>
 
-    </html>
+        <section class="activity-line" id="lbldetalle">
+
+        </section>
+
+        <div class="box-typical box-typical-padding" id="pnldetalle">
+          <p>
+            Ingrese su duda o consulta
+          </p>
+          <div class="row">
+              <div class="col-lg-12">
+                <fieldset class="form-group">
+                  <label class="form-label semibold" for="tickd_descrip">Descripción</label>
+                  <div class="summernote-theme-1">
+                    <textarea id="tickd_descrip" name="tickd_descrip" class="summernote" name="name"></textarea>
+                  </div>
+                </fieldset>
+              </div>
+
+              <!-- TODO: Agregar archivos adjuntos -->
+              <div class="col-lg-12">
+                <fieldset class="form-group">
+                  <label class="form-label semibold" for="fileElem">Documentos Adicionales</label>
+                  <input type="file" name="fileElem" id="fileElem" class="form-control" multiple>
+                </fieldset>
+              </div>
+
+              <div class="col-lg-12">
+                <button type="button" id="btnenviar" class="btn btn-rounded btn-inline btn-primary">Enviar</button>
+
+                <?php
+                  if($_SESSION["rol_id"]==2){
+                    ?>
+                      <button type="button" id="btnchatgpt" class="btn btn-rounded btn-inline btn-success">ChatGpt</button>
+                    <?php
+                  }
+                ?>
+
+                <button type="button" id="btncerrarticket" class="btn btn-rounded btn-inline btn-warning">Cerrar Ticket</button>
+              </div>
+          </div>
+			  </div>
+
+      </div>
+    </div>
+    <!-- Contenido -->
+
+    <?php require_once("../MainJs/js.php"); ?>
+
+    <script type="text/javascript" src="detalleticket.js"></script>
+
+    <script type="text/javascript" src="../notificacion.js"></script>
+
+  </body>
+
+  </html>
 <?php
 } else {
-    $conexion = new Conectar();
-    $ruta = $conexion->ruta();
-    header("Location: " . $ruta . "index.php");
+  header("Location:" . Conectar::ruta() . "index.php");
 }
 ?>

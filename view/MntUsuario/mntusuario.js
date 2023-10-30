@@ -6,6 +6,7 @@ function init(){
     });
 }
 
+/* TODO: Guardar datos de los input */
 function guardaryeditar(e){
     e.preventDefault();
 	var formData = new FormData($("#usuario_form")[0]);
@@ -18,9 +19,11 @@ function guardaryeditar(e){
         success: function(datos){    
             console.log(datos);
             $('#usuario_form')[0].reset();
+            /* TODO:Ocultar Modal */
             $("#modalmantenimiento").modal('hide');
             $('#usuario_data').DataTable().ajax.reload();
 
+            /* TODO:Mensaje de Confirmacion */
             swal({
                 title: "HelpDesk!",
                 text: "Completado.",
@@ -32,6 +35,11 @@ function guardaryeditar(e){
 }
 
 $(document).ready(function(){
+
+    $('#rol_id').select2({
+        dropdownParent: $('#modalmantenimiento')
+    });
+
     tabla=$('#usuario_data').dataTable({
         "aProcessing": true,
         "aServerSide": true,
@@ -85,10 +93,13 @@ $(document).ready(function(){
     }).DataTable(); 
 });
 
+/* TODO: Mostrar informacion segun ID en los inputs */
 function editar(usu_id){
     $('#mdltitulo').html('Editar Registro');
 
+    /* TODO: Mostrar Informacion en los inputs */
     $.post("../../controller/usuario.php?op=mostrar", {usu_id : usu_id}, function (data) {
+        console.log(data);
         data = JSON.parse(data);
         $('#usu_id').val(data.usu_id);
         $('#usu_nom').val(data.usu_nom);
@@ -96,11 +107,14 @@ function editar(usu_id){
         $('#usu_correo').val(data.usu_correo);
         $('#usu_pass').val(data.usu_pass);
         $('#rol_id').val(data.rol_id).trigger('change');
+        $('#usu_telf').val(data.usu_telf);
     }); 
 
+    /* TODO: Mostrar Modal */
     $('#modalmantenimiento').modal('show');
 }
 
+/* TODO: Cambiar estado a eliminado en caso de confirmar mensaje */
 function eliminar(usu_id){
     swal({
         title: "HelpDesk",
@@ -130,9 +144,12 @@ function eliminar(usu_id){
     });
 }
 
+/* TODO: Limpiar Inputs */
 $(document).on("click","#btnnuevo", function(){
+    $('#usu_id').val('');
     $('#mdltitulo').html('Nuevo Registro');
     $('#usuario_form')[0].reset();
+    /* TODO:Mostrar Modal */
     $('#modalmantenimiento').modal('show');
 });
 
