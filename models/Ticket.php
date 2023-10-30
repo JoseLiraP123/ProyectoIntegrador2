@@ -138,7 +138,7 @@ class Ticket extends Conectar{
     public function insert_ticketdetalle($tick_id,$usu_id,$tickd_descrip){
             $conectar= parent::conexion();
             parent::set_names();
-                $sql="INSERT INTO td_ticketdetalle (tickd_id,tick_id,usu_id,tickd_descrip,fech_crea,est) VALUES (NULL,?,?,?,now(),'1');";
+            $sql="INSERT INTO td_ticketdetalle (tickd_id,tick_id,usu_id,tickd_descrip,fech_crea,est) VALUES (NULL,?,?,?,now(),'1');";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1, $tick_id);
             $sql->bindValue(2, $usu_id);
@@ -168,6 +168,22 @@ class Ticket extends Conectar{
                      tick_id = ?";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1, $tick_id);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+    }
+    
+    public function update_ticket_asignacion($tick_id,$usu_asig){
+        $conectar= parent::conexion();
+            parent::set_names();
+            $sql="UPDATE tm_ticket 
+                  set 
+                     usu_asig = ?,
+                     fech_asig = now()
+                  where 
+                     tick_id = ?";
+            $sql=$conectar->prepare($sql);
+            $sql->bindValue(1, $usu_asig);
+            $sql->bindValue(2, $tick_id);
             $sql->execute();
             return $resultado=$sql->fetchAll();
     }
@@ -209,7 +225,6 @@ class Ticket extends Conectar{
         $sql->execute();
         return $resultado=$sql->fetchAll();               
     }
-
 
     }
 ?>

@@ -43,6 +43,7 @@
                                     <th class="d-none d-sm-table-cell" style="width: 5%">Estado</th>
                                     <th class="d-none d-sm-table-cell" style="width: 10%">Fecha de creación</th>
                                     <th class="d-none d-sm-table-cell" style="width: 10%">Fecha de asignación</th>
+                                    <th class="d-none d-sm-table-cell" style="width: 10%">Soporte</th>
                                     <th class="text-center" style="width: 5%;"></th>
                                 </tr>
                             </thead>
@@ -52,7 +53,10 @@
 	</div><!--.page-content-->
 
 	<?php require_once("../MainJS/js.php"); ?>
-        <script src="consultarticket.js"></script>
+        
+        <?php require_once("modalasignar.php"); ?>
+        
+        <script type="text/javascript" src="consultarticket.js"></script>
         
 </body>
 </html>
