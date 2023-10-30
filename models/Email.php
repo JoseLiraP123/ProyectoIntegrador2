@@ -23,6 +23,7 @@ class Email extends PHPMailer{
 
     /* TODO:Alertar al momento de generar un ticket */
     public function ticket_abierto($tick_id){
+        
         $ticket = new Ticket();
         $datos = $ticket->listar_ticket_x_id($tick_id);
         foreach ($datos as $row){
@@ -32,7 +33,7 @@ class Email extends PHPMailer{
             $categoria = $row["cat_nom"];
             $correo = $row["usu_correo"];
         }
-
+        
         //TODO: IGual//
         $this->IsSMTP();
         $this->Host = 'smtp.office365.com';//Aqui el server
@@ -66,6 +67,7 @@ class Email extends PHPMailer{
         }catch(Exception $e){
             return false;
         }
+        
     }
 
     /* TODO:Alertar al momento de Cerrar un ticket */

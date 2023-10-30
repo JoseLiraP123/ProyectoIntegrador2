@@ -1,5 +1,5 @@
 <?php
-    $apikey = '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';
+    $apikey = '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';
 
     $model = 'gpt-3.5-turbo';
 

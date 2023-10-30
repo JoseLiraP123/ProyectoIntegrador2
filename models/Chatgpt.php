@@ -11,15 +11,26 @@
                 $tick_descrip = $row["tick_descrip"];
             }
 
-            $apikey = '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';
+            $apikey = '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';
+
+            $model = 'gpt-3.5-turbo';
+
+            $messages = [
+                [
+                    'role' => 'system',
+                    'content' => 'Eres un tecnico en TI'
+                ],
+                [
+                    'role' => 'user',
+                    'content' => 'Que es un CPU?'
+                ]
+            ];
 
             $data = [
-                'model' => 'text-davinci-002',
-                'prompt' => 'Responde como un tecnico de soporte ti: '.$tick_descrip,
-                'temperature' => 0.7,
-                'max_tokens' => 300,
-                'n' => 1,
-                'stop' => ['\n']
+                'model' => $model,
+                'messages' => $messages,
+                'temperature' => 0.5,
+                'max_tokens' => 1024,
             ];
 
             $ch = curl_init('https://api.openai.com/v1/completions');
@@ -32,9 +43,8 @@
             ));
 
             $response = curl_exec($ch);
-            $responseArr = json_decode($response,true);
-            $responseText = $responseArr['choices'][0]['text'];
-            return $responseText;
+
+            echo $response;
 
         }
 
